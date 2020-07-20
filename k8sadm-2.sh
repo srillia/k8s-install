@@ -12,7 +12,6 @@ yum makecache fast
 yum -y remove kubelet kubeadm kubectl
 if test -z $version; then
 #为空使用默认版本
-#version=`yum list kubelet kubeadm kubectl | grep kubeadm | awk '{print $2}'`
-version=v1.18.3#this version stable
+version=`yum list kubelet kubeadm kubectl | grep kubeadm | awk '{print $2}'`
 fi
 yum install -y kubeadm-$version kubectl-$version kubelet-$version --disableexcludes=kubernetes && systemctl enable --now kubelet
