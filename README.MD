@@ -16,3 +16,7 @@ install-node-template.tpl
 ```
  安装子节点的模板文件
 ```
+config
+```
+ 配置文件，先配置配置文件，再运行脚本
+```
