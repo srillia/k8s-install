@@ -1,6 +1,7 @@
 install-master.sh 
 ```
  安装主节点
+ 注意修改ip
 ```
 uninstall.sh
 ```

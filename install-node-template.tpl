@@ -111,8 +111,6 @@ yum -y remove kubelet kubeadm kubectl
 #为空使用默认版本
 version=`yum list kubelet kubeadm kubectl | grep kubeadm | awk '{print $2}'`
 
-yum install -y kubeadm-$version kubectl-$version kubelet-$version --disableexclu
-des=kubernetes && systemctl enable --now kubelet
+yum install -y kubeadm-$version kubectl-$version kubelet-$version --disableexcludes=kubernetes && systemctl enable --now kubelet
 
 ?JOIN_COMMAND
-
