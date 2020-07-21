@@ -1,3 +1,4 @@
+./uninstall.sh
 ./prepare-1.sh k8s-master
 ./k8sadm-2.sh v1.18.6
 ./pull-imgs-3.sh v1.18.3
