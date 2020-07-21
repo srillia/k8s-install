@@ -21,7 +21,7 @@ function Set_hostname(){
       *)
         hostname $HostName
         echo "$HostName" > /etc/hostname
-        echo "`ifconfig eth0 | grep inet | awk '{print $2}'` $HostName" >> /etc/hosts
+        echo "127.0.0.1 $HostName" >> /etc/hosts
       ;;
       esac
     else
@@ -65,8 +65,17 @@ function Install_docker(){
 }
 
 # 初始化顺序
+#关闭防火墙
+systemctl stop firewalld
+systemctl disable firewalld
+#关闭交换内存
+echo "vm.swappiness = 0">> /etc/sysctl.conf
+swapoff -a && swapon -a && swapoff -a
+sysctl -p
 HostName=$1
 Check_linux_system && \
 Set_hostname && \
 Install_depend_environment && \
 Install_docker
+#重启docker
+systemctl restart docker
