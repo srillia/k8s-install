@@ -1,4 +1,6 @@
-kubeadm reset -f
+#hash判断命令是否存在
+hash kubectl >/dev/null 2>&1 && kubectl delete cm kubeadm-config -n kube-system
+hash kubeadm >/dev/null 2>&1 && kubeadm reset -f
 modprobe -r ipip
 lsmod
 rm -rf ~/.kube/

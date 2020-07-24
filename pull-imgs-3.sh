@@ -15,10 +15,6 @@ apiserver_version=${apiserver_version_tmp#*:}
 pause_version=${pause_version_tmp#*:}
 etcd_version=${etcd_version_tmp#*:}
 coredns_version=${coredns_version_tmp#*:}
-echo $apiserver_version
-echo $pause_version
-echo $etcd_version
-echo $coredns_version
 
 #KUBE_VERSION=v1.16.3
 #KUBE_PAUSE_VERSION=3.1
