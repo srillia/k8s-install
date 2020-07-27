@@ -65,16 +65,18 @@ function Install_docker(){
 }
 
 #完全卸载k8s
-kubeadm reset -f
+hash docker  >/dev/null 2>&1 && systemctl restart docker
+hash kubectl >/dev/null 2>&1 && kubectl delete cm kubeadm-config -n kube-system
+hash kubeadm >/dev/null 2>&1 && kubeadm reset -f
 modprobe -r ipip
 lsmod
 rm -rf ~/.kube/
 rm -rf /etc/kubernetes/
 rm -rf /etc/systemd/system/kubelet.service.d
 rm -rf /etc/systemd/system/kubelet.service
+rm -rf /usr/bin/kube*
 rm -rf /var/lib/cni/
 rm -rf /var/lib/kubelet/*
-rm -rf /usr/bin/kube*
 rm -rf /etc/cni
 
 

@@ -1,4 +1,5 @@
 #hash判断命令是否存在
+hash docker  >/dev/null 2>&1 && systemctl restart docker
 hash kubectl >/dev/null 2>&1 && kubectl delete cm kubeadm-config -n kube-system
 hash kubeadm >/dev/null 2>&1 && kubeadm reset -f
 modprobe -r ipip
