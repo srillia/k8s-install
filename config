@@ -1,0 +1,3 @@
+MASTER_HOST=?host
+MASTER_IP=?ip
+K8S_VERSION=?version
