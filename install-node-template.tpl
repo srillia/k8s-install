@@ -91,7 +91,7 @@ swapoff -a && swapon -a && swapoff -a
 sysctl -p
 #设置主机名称
 HostName=`hostnamectl status | grep hostname | awk '{print $3}'`
-if [[  $hostname == "k8s-node"* ]];then
+if [[ ! $hostname == "k8s-node"* ]];then
 HostName=?HOSTNAME
 fi
 Check_linux_system && \
